@@ -79,6 +79,7 @@ command to run the HTTP server. Make sure that you are in the top directory of
 the assignment before running the command.
 
 ```shellsession
+python -m http.server 8000 # For my pc
 python -m http.server # For Python 3
 python -m SimpleHTTPServer 8000 # If you don’t want to install Python 3
 ```

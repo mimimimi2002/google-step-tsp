@@ -13,3 +13,7 @@ def format_tour(tour):
 
 def print_tour(tour):
     print(format_tour(tour))
+
+def write_tour(tour, filename):
+    with open(filename, "w") as f:
+        f.write(format_tour(tour))

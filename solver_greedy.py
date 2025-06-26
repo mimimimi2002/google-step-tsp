@@ -23,6 +23,8 @@ def solve(cities):
     tour = [current_city]
 
     while unvisited_cities:
+
+        # get the closes city which has not been visited
         next_city = min(unvisited_cities,
                         key=lambda city: dist[current_city][city])
         unvisited_cities.remove(next_city)
