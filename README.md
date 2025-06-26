@@ -4,8 +4,8 @@
 
 | File name, folder name               | Usage                             | Command |
 |-----------------------|--------------------------------------------------|---------|
-| solve_2opt.py         | Main code for homework                           |python solve_2opt.py |
-input_file output_file|
+| solve_2opt.py         | Main code for homework                           |python solve_2opt.py input_file output_file|
+
 
 # Homework
 ## Overview
