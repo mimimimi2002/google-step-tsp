@@ -31,3 +31,16 @@ Responsible to judge whether two lines that are made of four City classes have a
 
 3. Path class
 Represents the current path and responsible to update the path and untie it if necessary.
+
+## Results
+By the way, the visualizer that was provided did not show the number next to the city, so I added some codes so that the number can be seen.
+
+When N = 128
+
+Greedy
+
+![GreedyResult](./n_128_greedy.jpg)
+
+Opt2 (own way)
+
+![Opt2Result](./n_128_opt2.jpg)
