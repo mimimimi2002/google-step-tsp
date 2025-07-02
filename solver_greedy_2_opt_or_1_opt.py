@@ -11,6 +11,20 @@ def get_total_distance(tour, dist):
     total += dist[tour[i]][tour[i+1]]
   return total
 
+def or_1_opt(tour: list[int], dist: list[list[float]]) -> bool:
+  improved = False
+  for i in range(len(tour) - 3):
+    for j in range(i + 3, len(tour) - 1):
+      a, b, c = tour[i], tour[i + 1], tour[i + 2]
+      d, e = tour[j], tour[j + 1]
+
+      # もしbがac間ではなくde間にある場合の方が短いとき
+      if dist[a][b] + dist[b][c] +  dist[d][e] >  dist[a][c] + dist[d][b] + dist[b][e]:
+        improved = True
+        tour = tour[: i + 1] + tour[i + 2: j + 1] + [b] + tour[j + 1: ]
+
+  return improved, tour
+
 def opt2(tour: list[int], dist: list[list[float]]) -> bool:
   improved = False
   for i in range(len(tour) - 2):
@@ -26,7 +40,7 @@ def opt2(tour: list[int], dist: list[list[float]]) -> bool:
 
   return improved, tour
 
-def greedy_and_opt2(cities, dist, start_city):
+def greedy_and_opt2_or_1_opt(cities, dist, start_city):
     N = len(cities)
 
     # current_cityに最初の出発都市を追加し、まだ訪問していない都市を全てに設定する
@@ -47,11 +61,15 @@ def greedy_and_opt2(cities, dist, start_city):
     # 最初のcityを追加
     tour.append(start_city)
 
-    # すべての結び目を解く
+    # すべての結び目を解く(2opt)
     improved = True
     while improved:
       improved, tour = opt2(tour, dist)
 
+    # or_1_opt, もしある点が別の二つの点の間にある場合に経路が短くなるならそっちにする
+    improved = True
+    while improved:
+      improved, tour = or_1_opt(tour, dist)
     return tour
 
 def distance(city1, city2):
@@ -68,15 +86,14 @@ def solve(cities):
 
     # start_cityを変えてベストスコアを出してみる
     # best_tourとshortest_distanceに0からスタートした場合の値を入れる
-    tour_start_from_0 = greedy_and_opt2(cities, dist, 0)
-    shortest_distance = get_total_distance(tour_start_from_0, dist)
-    best_tour = tour_start_from_0.copy()
+    shortest_distance = float('inf')
+    best_tour = [0, 0]
 
     # start_cityを1からN-1まで変え、一番良いものをとってくる
-    for i in range(1, N):
+    for i in range(0, N):
       print(i)
       start_city = i
-      tour = greedy_and_opt2(cities, dist, start_city)
+      tour = greedy_and_opt2_or_1_opt(cities, dist, start_city)
       total_dist = get_total_distance(tour, dist)
       if total_dist < shortest_distance:
         shortest_distance = total_dist
