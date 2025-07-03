@@ -117,10 +117,11 @@ def solve(cities):
         shortest_distance = total_dist
         best_tour = tour.copy()
 
+    print(get_total_distance(best_tour, dist))
     return best_tour
 
 if __name__ == '__main__':
     assert len(sys.argv) > 2
     tour = solve(read_input(sys.argv[1]))
-    print_tour(tour)
-    write_tour(tour, sys.argv[2])
+    #print_tour(tour)
+    #write_tour(tour, sys.argv[2])
