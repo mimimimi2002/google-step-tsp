@@ -4,7 +4,11 @@
 
 | File name, folder name               | Usage                             | Command |
 |-----------------------|--------------------------------------------------|---------|
-| solve_2opt.py         | Main code for homework                           |python solve_2opt.py input_file output_file|
+| solver_2opt_original.py            | TSP using original 2 opt                        |python solver_2opt_original.py input_file output_file|
+| solver_2opt.py                     | TSP using 2 opt                                 |python solver_2opt.py input_file output_file|
+| solver_greedy_2_opt_or_1_opt.py    | TSP using greedy and 2 opt and or_1_opt         |python solver_greedy_2_opt_or_1_opt.py input_file output_file|
+| solver_greedy_2_opt_or_1_opt_or_2_opt.py | TSP using greedy and 2 opt and or_1opt and or_2_opt                             |python solver_greedy_2_opt_or_1_opt_or_2_opt.py input_file output_file|
+| solver_annealing.py               | TSP using annealing and 2 opt and or_1opt and or_2_opt                             |python solver_annealing.py input_file output_file|
 
 
 # Homework
