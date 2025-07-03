@@ -18,7 +18,7 @@ def opt2(tour: list[int], dist: list[list[float]]) -> bool:
       a, b = tour[i], tour[i + 1]
       c, d = tour[j], tour[j + 1]
 
-      # 結び目を発見した場合
+      # 結び目を発見した場合、解く(2opt)
       if dist[a][b] + dist[c][d] > dist[a][c] + dist[b][d]:
         reversed_tour = list(reversed(tour[i + 1: j + 1]))
         tour = tour[: i + 1] + reversed_tour + tour[j + 1:]
@@ -29,6 +29,7 @@ def opt2(tour: list[int], dist: list[list[float]]) -> bool:
 def greedy_and_opt2(cities, dist, start_city):
     N = len(cities)
 
+    # greedyで訪問したことない年の中で一番近い都市を次に持ってくる
     # current_cityに最初の出発都市を追加し、まだ訪問していない都市を全てに設定する
     current_city = start_city
     unvisited_cities = {i for i in range(N) if i != start_city}

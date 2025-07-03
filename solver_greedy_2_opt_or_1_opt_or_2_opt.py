@@ -57,6 +57,7 @@ def opt2(tour: list[int], dist: list[list[float]]) -> bool:
 def greedy_and_opt2_or_1_opt_or_2_opt(cities, dist, start_city):
     N = len(cities)
 
+    # greedyで訪問したことない年の中で一番近い都市を次に持ってくる
     # current_cityに最初の出発都市を追加し、まだ訪問していない都市を全てに設定する
     current_city = start_city
     unvisited_cities = {i for i in range(N) if i != start_city}
@@ -85,6 +86,7 @@ def greedy_and_opt2_or_1_opt_or_2_opt(cities, dist, start_city):
     while improved:
       improved, tour = or_1_opt(tour, dist)
 
+    # or_2_opt, もしある隣同士の二つの点が別の二つの点に間にある場合に経路が短くなったらそっちにする
     improved = True
     while improved:
       improved, tour = or_2_opt(tour, dist)
@@ -102,17 +104,15 @@ def solve(cities):
         for j in range(i, N):
             dist[i][j] = dist[j][i] = distance(cities[i], cities[j])
 
-    # start_cityを変えてベストスコアを出してみる
-    # best_tourとshortest_distanceに0からスタートした場合の値を入れる
+    # start_cityを1からN-1まで変え、一番良いものをとってくる
     shortest_distance = float('inf')
     best_tour = [0, 0]
 
-    # start_cityを1からN-1まで変え、一番良いものをとってくる
-    for i in range(0, 10):
-      print(i)
+    for i in range(0, N):
       start_city = i
       tour = greedy_and_opt2_or_1_opt_or_2_opt(cities, dist, start_city)
       total_dist = get_total_distance(tour, dist)
+      print(i, total_dist)
       if total_dist < shortest_distance:
         shortest_distance = total_dist
         best_tour = tour.copy()

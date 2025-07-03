@@ -43,6 +43,7 @@ def opt2(tour: list[int], dist: list[list[float]]) -> bool:
 def greedy_and_opt2_or_1_opt(cities, dist, start_city):
     N = len(cities)
 
+    # greedyで訪問したことない年の中で一番近い都市を次に持ってくる
     # current_cityに最初の出発都市を追加し、まだ訪問していない都市を全てに設定する
     current_city = start_city
     unvisited_cities = {i for i in range(N) if i != start_city}
