@@ -82,6 +82,7 @@ The algorithms that we provided has a week point in that, the optimized path can
 
 Here is the graph that shows there are other global minimum answer but if you are caught in local answer.
 
+![Local optimal solution](./local_optimal_solution.png)
 
 This graph comes from https://www.researchgate.net/figure/Example-of-local-and-global-solutions-in-an-optimization-problem_fig3_322270023
 
@@ -109,7 +110,7 @@ In this way, we cannot guaranteed that we can find better answer, but it helps u
 |-------------------|-------|-------    |--------|---------  |---------   |----------  |---------|
 2opt                |3291.62|3832.29    |4494.42 |8256.55    |10885.95    |20932.86    |41437.85|
 2opt+or_1_opt       |3291.62|**3778.72**|4494.42 |8256.55    |10836.61    |**20822.26**|         |
-2opt+or_1_opt_2_opt |3291.62|**3778.72**|4494.42 |8256.55    |10802.37    |**20822.26**|
+2opt+or_1_opt_2_opt |3291.62|**3778.72**|4494.42 |8256.55    |10802.37    |**20822.26**|41587.35 |
 annealing           |3291.62|**3778.72**|4494.42 |**8118.40**|**10530.55**|21102.054   |42773.13 |
 
 ## Conclusion
