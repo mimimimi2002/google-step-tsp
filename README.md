@@ -111,7 +111,7 @@ In this way, we cannot guaranteed that we can find better answer, but it helps u
 2opt                |3291.62|3832.29    |4494.42 |8256.55    |10885.95    |20932.86    |41894.18|
 2opt+or_1_opt       |3291.62|**3778.72**|4494.42 |8256.55    |10836.61    |**20822.26**|41504.55 |
 2opt+or_1_opt_2_opt |3291.62|**3778.72**|4494.42 |8256.55    |10802.37    |**20822.26**|**41437.85**|
-annealing           |3291.62|**3778.72**|4494.42 |**8118.40**|**10519.77**|21083.01    |42764.51 |
+annealing           |3291.62|**3778.72**|4494.42 |**8118.40**|**10519.77**|21072.57    |42764.51 |
 
 ## Conclusion
 TSP is a NP problem which cannot be solved in algorithm with N^x order, but we have several algorithms to try to find optimized answers. Based on the results, I expect that annealing has the best score with all kinds of N, but it looks like depending on N, the algorithm that finds the shorter path varies.
